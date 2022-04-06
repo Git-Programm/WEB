@@ -1,0 +1,31 @@
+Journal Problems – 1
+Write a jQuery script to solve the following:
+1. Write a script to get the value of a textbox.
+2. Change the text color of all h1 elements in the web page.
+3. Display your name when text box receive focus and remove your name when textbox lost the focus.
+4. Demonstrate toggle effect.
+5. Demonstrate fade-in and fade-out effect.
+6. Demonstrate speed parameter (duration) in slide-up and slide-down.
+7. Insert HTML at the end of the <p> elements.
+8. Remove the parent element of an HTML element from the page.
+9. Get the HTML contents of any element.
+10. Set the text contents of any element.
+--------------
+Journal Problems – 2
+Solve the following using JSON code:
+Consider the following object to solve 1 to 4.
+Object: Student (Name: <Name of Student>, Roll_No: <Muster Roll Call>, Contact: <10 digits Mobile no.>)
+1. Create above object from JSON String and display each of its elements.
+2. Create above object from JSON Literal and display each of its elements.
+3. Create above object in JSON and display its properties.
+4. Create above object in JSON and display its properties values.
+5. Create any array having at-least 3 values in JSON and display its values.
+6. Create any object which contains an Array and display all its values. [Hint: Use loop structure]
+--------------
+Journal Problems – 3
+Write an AJAX code to solve the following:
+1. Create a webpage that accepts personal information of the user where user can also add a new language if it is
+not available in the list by clicking on "Add Language" link.
+2. Create a web page of your choice having "Show" button. While clicking on button it displays the contents of
+any text file (.txt).
+3. Create a web-page to read "Employee" JSON object using AJAX and display it using JSON and jQuery. 
