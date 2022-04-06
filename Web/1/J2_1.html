@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+	<H1>Change Font Of the Colour </H1>
+	<p>Click here to change the text color of header.</p>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+	$(document).ready(function () {
+		$("p").on({
+			mouseenter: function () {
+				$("h1").css("color", "red");
+			}
+		});
+	});
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ajax</title>
+</head>
+
+<body>
+	<h1>Ajax</h1>
+	<button type="button" id="fetchBtn" class="btn btn-primary">Fetch Data</button>
+	<button type="button" id="popBtn" class="btn btn-secondary">Populate</button>
+	<div class="container">
+		<h3>Employee list</h3>
+		<ul id="list">
+		</ul>
+	</div>
+</body>
+<script>
+	let popBtn = document.getElementById('popBtn');
+	popBtn.addEventListener('click', popHandler);
+
+	function popHandler() {
+		const xhr = new XMLHttpRequest();
+
+		xhr.open('GET', 'http://dummy.restapiexample.com/api/v1/employees', true);
+		xhr.onload = function () {
+			if (this.status === 200) {
+				let obj = JSON.parse(this.responseText);
+				let list = document.getElementById('list');
+				str = "";
+
+				for (key in obj) {
+					str += `<li>${obj[key].employee_name} </li>`;
+				}
+				list.innerHTML = str;
+			}
+			else {
+				console.log("Some error occured")
+			}
+		}
+		xhr.send();
+	}
+</script>
+
+</html>

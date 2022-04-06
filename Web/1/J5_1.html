@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#fi").click(function () {
+                $("#div1").fadeIn();
+            });
+            $("#fo").click(function () {
+                $("#div1").fadeOut();
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>Demonstrate fadeIn() with different parameters.</p>
+
+    <button id="fi">Click to fade In boxes</button><br><br>
+    <button id="fo">Click to fade Out boxes</button><br><br>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Language</title>
+</head>
+
+<body>
+    <center>
+        <h2>Personal Data</h2>
+        <form>
+            <div>
+                Full Name: <input type="text" id="Name">
+            </div>
+
+            <br>
+            <label for="Age1">
+                <div>
+                    Age: <input type="number" id="Age1">
+                </div>
+            </label>
+            <br>
+            <label for="Role">
+                <div>
+                    Role: <input type="text" id="Role">
+                </div>
+            </label>
+            <br>
+            <label for="Email-id">
+                <div>
+                    Email-Id: <input type="email" id="Email-id">
+                </div>
+            </label>
+            <br>
+            <label for="Date"></label>
+            <div>
+                Date: <input type="date" id="Date">
+            </div>
+            <br>
+            <label for="gender"></label>
+            <div>
+                Gender: Male<input type="radio" name="gender" id="gender"> Female<input type="radio" name="gender">
+                Others<input type="radio" name="gender">
+            </div>
+            <br>
+            <div>
+                Have you graduate? <input type="checkbox" checked>
+            </div>
+            <br>
+            <div>
+                <label for="board">
+                    Board:<select id="board">
+                        <option value="NONE" selected>NONE</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="ICSE">ICSE</option>
+                        <option value="GBSE">GBSE</option>
+                        <option value="OTHERS">OTHERS</option>
+                    </select>
+                </label>
+            </div>
+            <br>
+            <div>
+                <label for="lang">
+                    Add Language<select id="select1">
+                        <option value="English">English</option>
+                        <option value="Spain">Spain</option>
+                        <option id="op" value="Hindi">Hindi</option>
+                    </select>
+                </label>
+
+            </div>
+            <br>
+            <button type="button" id="add">
+                Add option
+            </button>
+            <br>
+            <div>
+                Write about yourself: <br><textarea name="myText" cols="50" rows="10">
+
+            </textarea>
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Submit now">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+        </script>
+        <script type="text/javascript">
+            $('#add').click(function () {
+                let optionValue = prompt("Please Enter Your Language : ", "Language")
+                $('#select1').append(`<option value="${optionValue}" selected>
+    									${optionValue}
+    								</option>`);
+            });
+        </script>
+    </center>
+</body>
+
+</html>
