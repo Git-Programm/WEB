@@ -1,104 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Language</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ajax</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
-    <center>
-        <h2>Personal Data</h2>
-        <form>
-            <div>
-                Full Name: <input type="text" id="Name">
-            </div>
-
-            <br>
-            <label for="Age1">
-                <div>
-                    Age: <input type="number" id="Age1">
-                </div>
-            </label>
-            <br>
-            <label for="Role">
-                <div>
-                    Role: <input type="text" id="Role">
-                </div>
-            </label>
-            <br>
-            <label for="Email-id">
-                <div>
-                    Email-Id: <input type="email" id="Email-id">
-                </div>
-            </label>
-            <br>
-            <label for="Date"></label>
-            <div>
-                Date: <input type="date" id="Date">
-            </div>
-            <br>
-            <label for="gender"></label>
-            <div>
-                Gender: Male<input type="radio" name="gender" id="gender"> Female<input type="radio" name="gender">
-                Others<input type="radio" name="gender">
-            </div>
-            <br>
-            <div>
-                Have you graduate? <input type="checkbox" checked>
-            </div>
-            <br>
-            <div>
-                <label for="board">
-                    Board:<select id="board">
-                        <option value="NONE" selected>NONE</option>
-                        <option value="CBSE">CBSE</option>
-                        <option value="ICSE">ICSE</option>
-                        <option value="GBSE">GBSE</option>
-                        <option value="OTHERS">OTHERS</option>
-                    </select>
-                </label>
-            </div>
-            <br>
-            <div>
-                <label for="lang">
-                    Add Language<select id="select1">
-                        <option value="English">English</option>
-                        <option value="Spain">Spain</option>
-                        <option id="op" value="Hindi">Hindi</option>
-                    </select>
-                </label>
-
-            </div>
-            <br>
-            <button type="button" id="add">
-                Add option
-            </button>
-            <br>
-            <div>
-                Write about yourself: <br><textarea name="myText" cols="50" rows="10">
-
-            </textarea>
-            </div>
-            <br>
-            <div>
-                <input type="submit" value="Submit now">
-                <input type="reset" value="Reset">
-            </div>
-        </form>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js">
-        </script>
-        <script type="text/javascript">
-            $('#add').click(function () {
-                let optionValue = prompt("Please Enter Your Language : ", "Language")
-                $('#select1').append(`<option value="${optionValue}" selected>
-    									${optionValue}
-    								</option>`);
-            });
-        </script>
-    </center>
+	<h1>Ajax</h1>
+	<button type="button" id="fetchBtn" class="btn btn-primary">Fetch Data</button>
+	<button type="button" id="popBtn" class="btn btn-secondary">Populate</button>
+	<div class="container">
+		<h3>Employee list</h3>
+		<ul id="list">
+		</ul>
+	</div>
 </body>
+<script>
+	let popBtn = document.getElementById('popBtn');
+	popBtn.addEventListener('click', popHandler);
+
+	function popHandler() {
+		const xhr = new XMLHttpRequest();
+
+		xhr.open('GET', 'http://dummy.restapiexample.com/api/v1/employees', true);
+		xhr.onload = function () {
+			if (this.status === 200) {
+				let obj = JSON.parse(this.responseText);
+				let list = document.getElementById('list');
+				str = "";
+				for (let i in obj.data) {
+					str += `<li>${obj.data[i].employee_name}</li>`;
+				}
+				list.innerHTML = str;
+			}
+			else {
+				console.log("Some error occured")
+			}
+		}
+		xhr.send();
+	}
+</script>
 
 </html>
