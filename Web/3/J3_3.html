@@ -19,20 +19,17 @@
 </body>
 <script>
 	let popBtn = document.getElementById('popBtn');
-	popBtn.addEventListener('click', popHandler);
-
-	function popHandler() {
+	popBtn.addEventListener('click', function () {
 		const xhr = new XMLHttpRequest();
 
 		xhr.open('GET', 'http://dummy.restapiexample.com/api/v1/employees', true);
 		xhr.onload = function () {
-			if (this.status === 200) {
+			if (this.status == 200) {
 				let obj = JSON.parse(this.responseText);
 				let list = document.getElementById('list');
 				str = "";
-
-				for (key in obj) {
-					str += `<li>${obj[key].employee_name} </li>`;
+				for (let i in obj.data) {
+					str += `<li>${obj.data[i].employee_name}</li>`;
 				}
 				list.innerHTML = str;
 			}
@@ -41,7 +38,7 @@
 			}
 		}
 		xhr.send();
-	}
+	});
 </script>
 
 </html>
